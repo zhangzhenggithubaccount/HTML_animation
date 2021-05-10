@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <section>
+        <p class="text">
+            Joint entity and relation extraction is the an important link in information extraction, text mining and knowledge graph. The purpose of joint entity and relation extraction is to extract all relational triples from sentence. Few existing studies are good at solving the problem of overlapping relational triples, that is, multiple relational triples share the same entity in same sentence. In this paper, we reexamine joint entity and relation extraction from new perspective, and propose Cascade Binary Tagging Framework based on Transformer (CBTT). The model not only ensures the performance of relational triple extraction, but also reduces the model complexity and time complexity. Moreover, we introduce the ProbSparse self-attention mechanism to go a step further enhance the performance of the model. Experimental results on two datasets (NYT and WebNLG) indicate that the proposed method obtain good performance. In different scenarios of overlapping relational triples, our method compared with the baseline shows that the method is provided with better performance in all scenarios.
+        </p>
+    </section>
+    <script>
+        let text = document.querySelector('.text');
+        text.innerHTML = text.textContent.replace(/\S/g, '<span>$&</span>');
+    
+        const letters = document.querySelectorAll('span');
+        for(let i = 0; i < letters.length; i++) {
+            letters[i].addEventListener('mouseover', function() {
+                letters[i].classList.add('active');
+            });
+        }
+    </script>
+</body>
+</html>
