@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 1500px;
+        }
+        .banner {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .banner .content {
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .banner .content h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        .banner .content p {
+            font-size: 1.5em;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+
+        <video autoplay muted loop>
+            <source src="./video/Light Leak 08.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1>Fullscreen Video Banner</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Corrupti itaque fuga impedit excepturi molestias possimus 
+                necessitatibus nobis praesentium neque commodi ipsam, dolores 
+                nulla qui cupiditate natus! Labore, reiciendis voluptas. Dolore.
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
