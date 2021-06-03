@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀑布流</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(130, 140, 250, 0.2);
+            display: flex;
+            justify-content: center;
+        }
+        .shell {
+            max-width: 1300px;
+            column-count: 5;
+            column-gap: 15px;
+        }
+        .image {
+            margin-bottom: 15px;
+        }
+        .image img {
+            width: 100%;
+        }
+        @media(max-width: 1200px) {
+            .shell {
+                column-count: 4;
+            }
+        }
+        @media(max-width: 850px) {
+            .shell {
+                column-count: 3;
+            }
+        }
+        @media(max-width: 600px) {
+            .shell {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shell">
+        <div class="image"><img data-src="./image/1.jpeg" /></div>
+        <div class="image"><img data-src="./image/2.jpeg" /></div>
+        <div class="image"><img data-src="./image/3.jpeg" /></div>
+        <div class="image"><img data-src="./image/4.jpeg" /></div>
+        <div class="image"><img data-src="./image/5.jpeg" /></div>
+        <div class="image"><img data-src="./image/6.jpeg" /></div>
+        <div class="image"><img data-src="./image/7.jpeg" /></div>
+        <div class="image"><img data-src="./image/8.jpeg" /></div>
+        <div class="image"><img data-src="./image/9.jpeg" /></div>
+        <div class="image"><img data-src="./image/10.jpeg" /></div>
+        <div class="image"><img data-src="./image/11.jpeg" /></div>
+        <div class="image"><img data-src="./image/12.jpeg" /></div>
+        <div class="image"><img data-src="./image/13.jpeg" /></div>
+        <div class="image"><img data-src="./image/14.jpeg" /></div>
+        <div class="image"><img data-src="./image/15.jpeg" /></div>
+        <div class="image"><img data-src="./image/16.jpeg" /></div>
+        <div class="image"><img data-src="./image/17.jpeg" /></div>
+        <div class="image"><img data-src="./image/18.jpeg" /></div>
+        <div class="image"><img data-src="./image/19.jpeg" /></div>
+        <div class="image"><img data-src="./image/20.jpeg" /></div>
+        <div class="image"><img data-src="./image/21.jpeg" /></div>
+        <div class="image"><img data-src="./image/22.jpeg" /></div>
+        <div class="image"><img data-src="./image/23.jpeg" /></div>
+        <div class="image"><img data-src="./image/24.jpeg" /></div>
+        <div class="image"><img data-src="./image/25.jpeg" /></div>
+        <div class="image"><img data-src="./image/26.jpeg" /></div>
+        <div class="image"><img data-src="./image/27.jpeg" /></div>
+        <div class="image"><img data-src="./image/28.jpeg" /></div>
+        <div class="image"><img data-src="./image/29.jpeg" /></div>
+        <div class="image"><img data-src="./image/30.jpeg" /></div>
+    </div>
+    <script>
+        let imgs = document.querySelectorAll('.image img');
+        let imgDiv = document.querySelectorAll('.image')
+        let sizes = imgs.length;
+        let _clientHeight = document.documentElement.clientHeight;
+        let _scrollTop = document.documentElement.scrollTop;
+        let n = 0;
+        function computeClientHeigth() {
+            _clientHeigth = document.documentElement.clientHeigth;
+            console.log(_clientHeigth);
+        }
+        function lazyImage() {
+            _scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            for(let i = n; i < sizes; i++) {
+                // window === document.defaultView
+                // 返回CSSStyleDeclaration对象
+                // let style = window.getComputedStyle(imgs[i], null);
+                // console.log('imgs[' + i+ '] = ' + imgs[i].offsetTop, _clientHeight + _scrollTop);
+                if(imgs[i].offsetTop < _clientHeight + _scrollTop) {
+                    if(imgs[i].src == '') {
+                        imgs[i].src = imgs[i].getAttribute('data-src');
+                    }
+                }
+                n++;
+            }
+        }
+        lazyImage();
+
+    </script>
+</body>
+</html>
